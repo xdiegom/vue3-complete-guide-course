@@ -7,7 +7,7 @@
 
 Hi there 👋🏼!
 
-These are my notes from [Vue 3 Course]((https://www.udemy.com/course/vuejs-2-the-complete-guide/)) taught by [Maximilian Schwarzmüller](https://twitter.com/maxedapps) 🙌🏼
+These are my notes from [Vue 3 Course](https://www.udemy.com/course/vuejs-2-the-complete-guide) taught by [Maximilian Schwarzmüller](https://twitter.com/maxedapps) 🙌🏼
 
 If you want explore and run some of the example code I followed along, you can install [serve](https://www.npmjs.com/package/serve)
 
