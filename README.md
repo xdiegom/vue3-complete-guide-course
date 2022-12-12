@@ -13,4 +13,4 @@ If you want explore and run some of the example code I followed along, you can i
 
 ## **Course Notes**
 
-- [Basic and Core Concepts - DOM Interactions with Vue](#)
+- [Basic and Core Concepts - DOM Interactions with Vue](https://github.com/xdiegom/vue3-complete-guide-course/tree/main/section-2)
