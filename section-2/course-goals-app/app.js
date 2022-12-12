@@ -5,6 +5,7 @@ const app = Vue.createApp({
       b: 2,
       vueURL: "https://vuejs.org",
       courseGoal: "Finish the course and learn Vue!",
+      htmlContent: '<div style="color: yellow;"> This is a styled raw HTML content </div>'
     };
   },
   methods: {

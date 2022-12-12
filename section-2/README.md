@@ -94,3 +94,15 @@ Vue.createApp({
   },
 });
 ```
+
+## Working with data inside Vue app
+
+As you may seen before, when you are working with data inside a Vue instance, you MUST use the keyword `this` inside of methods and all other core concepts that it will be avaialable to work with. 
+
+## HTML directive
+
+Sometimes there are some scenarios where you may received HTML code with data in it from an API response. For that, Vue has an special directive called `v-html` to output raw HTML.
+
+⚠️ As the documentation says, using this directive can be very dangerous because it can easily lead to [XSS](https://owasp.org/www-community/attacks/xss) (Cross Site Scripting) attacks. Thus, we should be aware that if we use this directive inside a Vue App is because we trust the source of content.
+
+On the other hand, if we use inteporlation with HTML content, Vue won't output the content as raw HTML, but instead will treat it as text and escape any special characters to prevent potential cross-site scripting attacks.
