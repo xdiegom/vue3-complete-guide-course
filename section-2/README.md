@@ -1,5 +1,5 @@
-
 # **Core features**
+
 <picture>
       <source srcset="https://avatars.githubusercontent.com/u/6128107?s=200&v=4" media="(prefers-color-scheme: dark)" alt="VueJS" />
       <svg style="position: absolute; top:2; right: 250px; padding-top: 18px; padding-left: 19px" viewBox="0 0 128 128" width="24" height="24" data-v-e0ef77de=""><path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-e0ef77de=""></path><path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-e0ef77de=""></path></svg>
@@ -30,7 +30,9 @@ Is a function that is declared inside in a Vue instance and it MUST return an ob
 Is a process in which Vue detects and insert the variables, methods, functions that returns a result (string, object, boolean, numbers, arrays) inside HTML code using curly braces `{{ foo }}`
 
 ```html
-<p>This is an example of inteporalate <strong>foo</strong> variable: {{ foo }}</p>
+<p>
+  This is an example of inteporalate <strong>foo</strong> variable: {{ foo }}
+</p>
 ```
 
 ## **Directives**
@@ -97,7 +99,7 @@ Vue.createApp({
 
 ## Working with data inside Vue app
 
-As you may seen before, when you are working with data inside a Vue instance, you MUST use the keyword `this` inside of methods and all other core concepts that it will be avaialable to work with. 
+As you may seen before, when you are working with data inside a Vue instance, you MUST use the keyword `this` inside of methods and all other core concepts that it will be avaialable to work with.
 
 ## HTML directive
 
@@ -106,3 +108,75 @@ Sometimes there are some scenarios where you may received HTML code with data in
 ⚠️ As the documentation says, using this directive can be very dangerous because it can easily lead to [XSS](https://owasp.org/www-community/attacks/xss) (Cross Site Scripting) attacks. Thus, we should be aware that if we use this directive inside a Vue App is because we trust the source of content.
 
 On the other hand, if we use inteporlation with HTML content, Vue won't output the content as raw HTML, but instead will treat it as text and escape any special characters to prevent potential cross-site scripting attacks.
+
+## Events and Methods
+
+### Events
+
+As `v-bind` is a directive for setting the value for an attribute. But for event listers we have another directive which is `v-on`.
+
+You can add more than one event listener to a HTML tag depending on what you want to do.
+
+All the default HTML events that you would like to bind to the `v-on` directives are allowed.
+
+Example:
+
+```html
+<!-- index.html -->
+<button v-on:click="counter++">Add to counter</button>
+
+<p>{{ counter }}</p>
+```
+
+```js
+// app.js
+Vue.createApp({
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+});
+```
+
+### Methods
+
+When it comes to events, it is not recommended to put too much logic into your HTML code. Instead the HTML code is to output results.
+
+This is why methods comes into play when we want to make certain routines once an event is emitted.
+
+There two ways to call a method inside an event listener. Explicitly or with just the name of the method.
+
+```html
+<button v-on:click="add">Add</button>
+
+<!-- or -->
+
+<button v-on:click="add()">Add</button>
+```
+
+Sometimes if you want to pass other arguments to a method from an event, you may pass explicitly the reserved variable `$event` as a first argument to the method like this:
+
+```html
+<!-- index.html -->
+<input type="text" v-on:click="setName($event, 'Melgar')">
+```
+
+```js
+// app.js
+Vue.createApp({
+  data() {
+    return {
+      name: '',
+    };
+  },
+  methods: {
+    setName(event, lastName) {
+      this.name = event.target.value + ' ' + lastName
+    }
+  }
+});
+```
+
+### Event modifiers
+
